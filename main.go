@@ -1,5 +1,5 @@
 package main
-
+  
 import "fmt"
 
 func main() {
@@ -7,6 +7,9 @@ func main() {
 		ligne int = 8
 		colonne int = 20
 	)
+
+	var attempmax = 10
+	var secretword = "thesecretword"
 	
 	var affichage [ligne][colonne]string
 	for i := 0; i < ligne; i++ {
