@@ -19,7 +19,7 @@ func (g *Game) Init_game(Ligne int, Colonne int) {
 		var s []string
 		g.Tableau = append(g.Tableau, s)
 		for j := 0; j < g.Colonne; j++ {
-			g.Tableau[i] = append(g.Tableau[i], "")
+			g.Tableau[i] = append(g.Tableau[i], " ")
 		}
 	}
 }
