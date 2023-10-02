@@ -7,9 +7,15 @@ func (g *Game) Display() {
 	case 0: //sol
 		fmt.Print(g.Tableau)
 	case 1: //poteau
-		
+		for i := 0; i < 9; i++ {
+			g.Tableau[g.Ligne-1][i] = "-"
+		}
 		fmt.Print(g.Tableau)
 	case 2: //barre du haut
+		for i := 0; i < 8; i++ {
+			g.Tableau[i][4] = "|"
+		}
+		fmt.Print(g.Tableau)
 
 	case 3: //soutien
 
@@ -28,7 +34,5 @@ func (g *Game) Display() {
 	case 10: // jambe droite
 
 	}
-
-
 
 }
