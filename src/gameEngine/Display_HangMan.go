@@ -5,7 +5,17 @@ import "fmt"
 func (g *Game) Display() {
 	switch g.stage {
 	case 0: //sol
-		fmt.Print(g.Tableau)
+		for i := 0; i < len(g.Tableau); i++ {
+			fmt.Println(g.Tableau[i])
+		}
+
+		var text string
+		fmt.Scanln(&text)
+
+		if text == "1" {
+			g.stage = 1
+			g.Display()
+		}
 	case 1: //poteau
 		for i := 0; i < 9; i++ {
 			g.Tableau[g.Ligne-1][i] = "-"
