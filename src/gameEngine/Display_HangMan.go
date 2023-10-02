@@ -1,12 +1,14 @@
 package gameEngine
 
-func display() {
-	var g Game
+import "fmt"
+
+func (g *Game) Display() {
 	switch g.stage {
 	case 0: //sol
-		
+		fmt.Print(g.Tableau)
 	case 1: //poteau
 		
+		fmt.Print(g.Tableau)
 	case 2: //barre du haut
 
 	case 3: //soutien

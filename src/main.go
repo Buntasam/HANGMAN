@@ -11,4 +11,5 @@ func main() {
 	for i := 0; i < g.Ligne; i++ {
 		fmt.Println(g.Tableau[i])
 	}
+	g.Display()
 }

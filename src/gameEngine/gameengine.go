@@ -14,6 +14,7 @@ type Game struct {
 func (g *Game) Init_game(Ligne int, Colonne int) {
 	g.Ligne = Ligne
 	g.Colonne = Colonne
+	g.stage = 1
 	for i := 0; i < g.Ligne; i++ {
 		var s []string
 		g.Tableau = append(g.Tableau, s)
