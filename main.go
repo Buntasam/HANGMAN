@@ -10,7 +10,8 @@ func main() {
 
 	var attempmax = 10
 	var secretword = "thesecretword"
-	
+	var currentword = 
+
 	var affichage [ligne][colonne]string
 	for i := 0; i < ligne; i++ {
 		for j := 0; j < colonne; j++ {
