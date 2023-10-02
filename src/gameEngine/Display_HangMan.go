@@ -5,6 +5,7 @@ import "fmt"
 func (g *Game) Display() {
 	switch g.stage {
 	case 0: //sol
+
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
@@ -16,7 +17,9 @@ func (g *Game) Display() {
 			g.stage = 1
 			g.Display()
 		}
+
 	case 1: //sol
+
 		for i := 0; i < 9; i++ {
 			g.Tableau[g.Ligne-1][i] = "-"
 		}
@@ -32,7 +35,9 @@ func (g *Game) Display() {
 			g.stage = 2
 			g.Display()
 		}
+
 	case 2: //poteau
+
 		for i := 0; i < 7; i++ {
 			g.Tableau[i][4] = "|"
 		}
@@ -48,6 +53,7 @@ func (g *Game) Display() {
 		}
 
 	case 3: //barre du haut
+
 		for i := 4; i < 12; i++ {
 			g.Tableau[0][i] = "-"
 		}
@@ -63,6 +69,7 @@ func (g *Game) Display() {
 		}
 
 	case 4: //soutien
+
 		g.Tableau[1][6] = "/"
 		g.Tableau[2][5] = "/"
 
@@ -78,6 +85,7 @@ func (g *Game) Display() {
 		}
 
 	case 5: //corde
+
 		g.Tableau[1][11] = "|"
 
 		for i := 0; i < len(g.Tableau); i++ {
@@ -92,6 +100,7 @@ func (g *Game) Display() {
 		}
 
 	case 6: //tete
+
 		g.Tableau[2][11] = "O"
 
 		for i := 0; i < len(g.Tableau); i++ {
@@ -106,6 +115,7 @@ func (g *Game) Display() {
 		}
 
 	case 7: // corps
+
 		g.Tableau[3][11] = "|"
 		g.Tableau[4][11] = "|"
 
@@ -121,6 +131,7 @@ func (g *Game) Display() {
 		}
 
 	case 8: // bras droit
+
 		g.Tableau[3][12] = `\`
 
 		for i := 0; i < len(g.Tableau); i++ {
@@ -135,6 +146,7 @@ func (g *Game) Display() {
 		}
 
 	case 9: // bras gauche
+
 		g.Tableau[3][10] = "/"
 
 		for i := 0; i < len(g.Tableau); i++ {
@@ -149,6 +161,7 @@ func (g *Game) Display() {
 		}
 
 	case 10: // jambe gauche
+
 		g.Tableau[5][10] = "/"
 
 		for i := 0; i < len(g.Tableau); i++ {
@@ -163,6 +176,7 @@ func (g *Game) Display() {
 		}
 
 	case 11: // jambe droite
+
 		g.Tableau[5][12] = `\`
 
 		for i := 0; i < len(g.Tableau); i++ {
@@ -175,7 +189,5 @@ func (g *Game) Display() {
 			g.stage = 12
 			g.Display()
 		}
-
 	}
-
 }
