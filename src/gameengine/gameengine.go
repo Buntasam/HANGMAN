@@ -6,9 +6,9 @@ import (
 	"log"
 )
 
-func main() {
+func gameengine() {
 	const (
-		ligne int = 8
+		ligne   int = 8
 		colonne int = 20
 	)
 
@@ -20,7 +20,6 @@ func main() {
 		currentword = append(currentword, "_")
 	}
 
-
 	var affichage [ligne][colonne]string
 	for i := 0; i < ligne; i++ {
 		for j := 0; j < colonne; j++ {
@@ -28,7 +27,6 @@ func main() {
 		}
 		fmt.Print("\n")
 	}
-	
 
 	fmt.Print(currentword)
 	fmt.Print("\n")
@@ -48,9 +46,8 @@ func main() {
 	fmt.Print("\n")
 	fmt.Print("\n")
 
-
 	file, err := ioutil.ReadFile("mot.txt")
-	
+
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -58,4 +55,3 @@ func main() {
 	text := string(file)
 	fmt.Println(text)
 }
-
