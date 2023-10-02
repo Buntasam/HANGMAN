@@ -1,6 +1,10 @@
 package main
-  
-import "fmt"
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+)
 
 func main() {
 	const (
@@ -10,10 +14,10 @@ func main() {
 
 	//var attempmax = 10
 	var secretword = "thesecretword"
-	var currentword = ""
+	var currentword []string
 
 	for i := 0; i < len(secretword); i++ {
-		currentword += "_ "
+		currentword = append(currentword, "_")
 	}
 
 
@@ -24,7 +28,33 @@ func main() {
 		}
 		fmt.Print("\n")
 	}
+	
+
 	fmt.Print(currentword)
 	fmt.Print("\n")
 	fmt.Print("\n")
+
+	for i := 0; i < len(currentword); i++ {
+		fmt.Print(currentword[i], " ")
+	}
+	fmt.Print("\n")
+	fmt.Print("\n")
+
+	currentword[3] = "I"
+
+	for i := 0; i < len(currentword); i++ {
+		fmt.Print(currentword[i], " ")
+	}
+	fmt.Print("\n")
+	fmt.Print("\n")
+
+	file, err := ioutil.ReadFile("mot.txt")
+	
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	text := string(file)
+	fmt.Println(text)
 }
+
