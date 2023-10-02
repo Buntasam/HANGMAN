@@ -2,8 +2,17 @@ package main
 
 import "fmt"
 
-
 func main() {
-	var affichage armature
-	fmt.Print(affichage)
+	const (
+		ligne int = 8
+		colonne int = 20
+	)
+	
+	var affichage [ligne][colonne]string
+	for i := 0; i < ligne; i++ {
+		for j := 0; j < colonne; j++ {
+			fmt.Print(affichage[i][j])
+		}
+		fmt.Print("\n")
+	}
 }
