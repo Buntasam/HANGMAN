@@ -8,9 +8,14 @@ func main() {
 		colonne int = 20
 	)
 
-	var attempmax = 10
+	//var attempmax = 10
 	var secretword = "thesecretword"
-	var currentword = 
+	var currentword = ""
+
+	for i := 0; i < len(secretword); i++ {
+		currentword += "_ "
+	}
+
 
 	var affichage [ligne][colonne]string
 	for i := 0; i < ligne; i++ {
@@ -19,4 +24,7 @@ func main() {
 		}
 		fmt.Print("\n")
 	}
+	fmt.Print(currentword)
+	fmt.Print("\n")
+	fmt.Print("\n")
 }
