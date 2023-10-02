@@ -40,13 +40,17 @@ func main() {
 	fmt.Print("\n")
 	fmt.Print("\n")
 
-	currentword[3] = "I"
+	currentword[3] = "B"
+	currentword[4] = "i"
+	currentword[5] = "t"
+	currentword[6] = "e"
 
 	for i := 0; i < len(currentword); i++ {
 		fmt.Print(currentword[i], " ")
 	}
 	fmt.Print("\n")
 	fmt.Print("\n")
+
 
 	file, err := ioutil.ReadFile("mot.txt")
 	
