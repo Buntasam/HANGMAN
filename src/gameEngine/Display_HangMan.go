@@ -1,20 +1,53 @@
 package gameEngine
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strings"
+	"math/rand"
+	"time"
+)
 
 func (g *Game) Display() {
+
+	content, err := os.ReadFile("gameEngine/mot.txt")
+	if err != nil {
+		fmt.Print(err)
+	}
+	lines := strings.Split(string(content), "\n")
+
+	s1 := rand.NewSource(time.Now().UnixNano())
+    r1 := rand.New(s1)
+
+
+	nb_mot := len(lines)
+	g.random_number = r1.Intn(nb_mot)
+	fmt.Println(lines[g.random_number])
+	tableau := []rune(lines[g.random_number])
+	fmt.Println(tableau)
+	fmt.Println()
+
+	for i := 0; i < len(lines[g.random_number]) - 1; i++ {
+		g.mot_secret = append(g.mot_secret, "_")
+	}
+	
+	fmt.Println(g.mot_secret)
+	fmt.Println()
+
 	switch g.stage {
 	case 0: //vide
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
 		fmt.Print("\n\n")
-		var text string
+		var text rune
 		fmt.Scanln(&text)
-
-		if text == "1" {
-			g.stage = 1
-			g.Display()
+		fmt.Println(text)
+		for _, letter := range tableau {
+			letter = 0
+			if text == letter {
+				fmt.Println("vrai")
+			}
 		}
 
 	case 1: //sol
@@ -205,10 +238,10 @@ func (g *Game) Display() {
 		fmt.Println("  ________                        ________                     ")
 		fmt.Println(" /  _____/ ____    _____   ____  ", `\`+"_____ ", `\`+"___  __ ___________ ")
 		fmt.Println("/  ", `\`, " ___", `\`+"__", `\`, " /    ", `\`+"_/ __", `\`, "  /   |  ", `\`+" ", `\`+"/ // __", `\`+"_  __", `\`)
-		fmt.Println(`\`, "  ", `\`+"_"+`\ `, `\`+"/ __", `\`+"|  Y Y ", `\`, " ___/  /    |   ", `\`, "  /",`\`, "___/|  | "+ `\`+"/")
-		fmt.Println(` \`+"______  (____  /__|_|  /"+`\`+"___  > "+`\`+"_______  /"+`\`+"_/   "+`\`+"___ >__|   ")
-		fmt.Println("       ", `\`+"/    ", `\`+"/      "+`\`+"/    ", `\`+"/         ", `\`+"/           "+ `\`+"/       ")
-		fmt.Println("\n")
+		fmt.Println(`\`, "  ", `\`+"_"+`\ `, `\`+"/ __", `\`+"|  Y Y ", `\`, " ___/  /    |   ", `\`, "  /", `\`, "___/|  | "+`\`+"/")
+		fmt.Println(` \` + "______  (____  /__|_|  /" + `\` + "___  > " + `\` + "_______  /" + `\` + "_/   " + `\` + "___ >__|   ")
+		fmt.Println("       ", `\`+"/    ", `\`+"/      "+`\`+"/    ", `\`+"/         ", `\`+"/           "+`\`+"/       ")
+		fmt.Println()
+		fmt.Println()
 	}
 }
-	

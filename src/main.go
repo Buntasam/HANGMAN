@@ -7,5 +7,5 @@ import (
 func main() {
 	var g ge.Game
 	g.Init_game(8,20)
-	g.Display()
+	g.Running_game()
 }
