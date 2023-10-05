@@ -42,7 +42,6 @@ func (g *Game) verif() {
 	g.perdu = true
 	for j := 0; j < len(g.Tableau_rune)-1; j++ {
 		if string(text) == string(g.Tableau_rune[j]) {
-			fmt.Println("vrai")
 			g.Mot_secret[j] = text
 			g.perdu = false
 		}
