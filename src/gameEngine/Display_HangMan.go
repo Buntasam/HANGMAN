@@ -25,7 +25,7 @@ func (g *Game) aléatoire() {
 	fmt.Println(g.Tableau_rune)
 	fmt.Println()
 
-	for i := 0; i < len(lines[g.Random_number])-1; i++ {
+	for i := 0; i < len(lines[g.Random_number]); i++ {
 		g.Mot_secret = append(g.Mot_secret, "_")
 	}
 
@@ -41,11 +41,16 @@ func (g *Game) verif() {
 	var text string
 	fmt.Scanln(&text)
 	fmt.Println()
+	g.perdu = true
 	for j := 0; j < len(g.Tableau_rune) -1; j++ {
 		if string(text) == string(g.Tableau_rune[j]) {
 			fmt.Println("vrai")
 			g.Mot_secret[j] = text
+			g.perdu = false
+		} 
 		}
+	if g.perdu {
+		g.Stage++
 	}
 }
 
@@ -68,14 +73,9 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "2" {
-			g.Stage = 2
-			g.Display()
-		}
+		g.verif()
+		g.Display()
 
 	case 2: //poteau
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")

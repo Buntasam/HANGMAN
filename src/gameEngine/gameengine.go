@@ -18,6 +18,7 @@ type Game struct {
 	S1            rand.Source
 	R1            *rand.Rand
 	Tableau_rune  []rune
+	perdu bool
 }
 
 func (g *Game) Init_game(Ligne int, Colonne int) {
