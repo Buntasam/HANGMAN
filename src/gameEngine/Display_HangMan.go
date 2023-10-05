@@ -31,6 +31,7 @@ func (g *Game) aléatoire() {
 }
 
 func (g *Game) verif() {
+	fmt.Println()
 	fmt.Println(g.Mot_secret)
 
 	fmt.Print("\n\n")
