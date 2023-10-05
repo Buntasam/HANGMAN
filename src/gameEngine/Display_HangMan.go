@@ -20,16 +20,13 @@ func (g *Game) aléatoire() {
 
 	nb_mot := len(lines)
 	g.Random_number = r1.Intn(nb_mot)
-	fmt.Println(lines[g.Random_number])
 	g.Tableau_rune = []rune(lines[g.Random_number])
-	fmt.Println(g.Tableau_rune)
 	fmt.Println()
 
 	for i := 0; i < len(lines[g.Random_number]); i++ {
 		g.Mot_secret = append(g.Mot_secret, "_")
 	}
-
-	fmt.Println(g.Mot_secret)
+	
 	fmt.Println()
 }
 
@@ -96,14 +93,9 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "4" {
-			g.Stage = 4
-			g.Display()
-		}
+		g.verif()
+		g.Display()
 
 	case 4: //soutien
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -113,14 +105,9 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "5" {
-			g.Stage = 5
-			g.Display()
-		}
+		g.verif()
+		g.Display()
 
 	case 5: //corde
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -129,14 +116,9 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "6" {
-			g.Stage = 6
-			g.Display()
-		}
+		g.verif()
+		g.Display()
 
 	case 6: //tete
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -145,14 +127,9 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "7" {
-			g.Stage = 7
-			g.Display()
-		}
+		g.verif()
+		g.Display()
 
 	case 7: // corps
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -162,14 +139,10 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "8" {
-			g.Stage = 8
-			g.Display()
-		}
+		g.verif()
+		g.Display()
+
 
 	case 8: // bras droit
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -178,14 +151,9 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "9" {
-			g.Stage = 9
-			g.Display()
-		}
+		g.verif()
+		g.Display()
 
 	case 9: // bras gauche
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -194,14 +162,10 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "10" {
-			g.Stage = 10
-			g.Display()
-		}
+		g.verif()
+		g.Display()
+
 
 	case 10: // jambe gauche
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -210,14 +174,9 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "11" {
-			g.Stage = 11
-			g.Display()
-		}
+		g.verif()
+		g.Display()
 
 	case 11: // jambe droite
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -226,14 +185,9 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
 
-		if text == "12" {
-			g.Stage = 12
-			g.Display()
-		}
+		g.verif()
+		g.Display()
 
 	case 12: // jambe droite
 		fmt.Print("\n\n")
