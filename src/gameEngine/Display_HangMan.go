@@ -42,13 +42,13 @@ func (g *Game) verif() {
 	fmt.Scanln(&text)
 	fmt.Println()
 	g.perdu = true
-	for j := 0; j < len(g.Tableau_rune) -1; j++ {
+	for j := 0; j < len(g.Tableau_rune)-1; j++ {
 		if string(text) == string(g.Tableau_rune[j]) {
 			fmt.Println("vrai")
 			g.Mot_secret[j] = text
 			g.perdu = false
-		} 
 		}
+	}
 	if g.perdu {
 		g.Stage++
 	}
@@ -85,14 +85,8 @@ func (g *Game) Display() {
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text string
-		fmt.Scanln(&text)
-
-		if text == "3" {
-			g.Stage = 3
-			g.Display()
-		}
+		g.verif()
+		g.Display()
 
 	case 3: //barre du haut
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
