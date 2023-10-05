@@ -20,7 +20,8 @@ func (g *Game) aléatoire() {
 
 	nb_mot := len(lines)
 	g.Random_number = r1.Intn(nb_mot)
-	g.Tableau_rune = []rune(lines[g.Random_number])
+	g.mot = lines[g.Random_number]
+	g.Tableau_rune = []rune(g.mot)
 	fmt.Println()
 
 	for i := 0; i < len(lines[g.Random_number]); i++ {
@@ -189,7 +190,7 @@ func (g *Game) Display() {
 		g.verif()
 		g.Display()
 
-	case 12: // jambe droite
+	case 12: // game over
 		fmt.Print("\n\n")
 		g.Tableau[5][12] = `\`
 		fmt.Println("  ________                        ________                     ")
@@ -198,6 +199,9 @@ func (g *Game) Display() {
 		fmt.Println(`\`, "  ", `\`+"_"+`\ `, `\`+"/ __", `\`+"|  Y Y ", `\`, " ___/  /    |   ", `\`, "  /", `\`, "___/|  | "+`\`+"/")
 		fmt.Println(` \` + "______  (____  /__|_|  /" + `\` + "___  > " + `\` + "_______  /" + `\` + "_/   " + `\` + "___ >__|   ")
 		fmt.Println("       ", `\`+"/    ", `\`+"/      "+`\`+"/    ", `\`+"/         ", `\`+"/           "+`\`+"/       ")
+		fmt.Println()
+		fmt.Println()
+		fmt.Printf("Le mot était : %s", g.mot)
 		fmt.Println()
 		fmt.Println()
 	}
