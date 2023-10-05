@@ -2,23 +2,28 @@ package gameEngine
 
 import (
 	"fmt"
+	"math/rand"
 )
 
 type Game struct {
-	Ligne int
-	Colonne int
-	Tableau [][]string
-	stage int
-	random_number int
-	mot_secret []string
+	Ligne         int
+	Colonne       int
+	Tableau       [][]string
+	Stage         int
+	Random_number int
+	Mot_secret    []string
+	Content       []byte
+	Err           error
+	Lines         []string
+	S1            rand.Source
+	R1            *rand.Rand
+	Tableau_rune  []rune
 }
-
-
 
 func (g *Game) Init_game(Ligne int, Colonne int) {
 	g.Ligne = Ligne
 	g.Colonne = Colonne
-	g.stage = 0
+	g.Stage = 0
 	for i := 0; i < g.Ligne; i++ {
 		var s []string
 		g.Tableau = append(g.Tableau, s)
@@ -26,7 +31,7 @@ func (g *Game) Init_game(Ligne int, Colonne int) {
 			g.Tableau[i] = append(g.Tableau[i], " ")
 		}
 	}
-	g.random_number = 0
+	g.Random_number = 0
 }
 
 func (g *Game) Running_game() {

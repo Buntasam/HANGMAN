@@ -2,53 +2,62 @@ package gameEngine
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
-	"math/rand"
 	"time"
 )
 
-func (g *Game) Display() {
-
-	content, err := os.ReadFile("gameEngine/mot.txt")
-	if err != nil {
-		fmt.Print(err)
+func (g *Game) aléatoire() {
+	g.Content, g.Err = os.ReadFile("gameEngine/mot.txt")
+	if g.Err != nil {
+		fmt.Print(g.Err)
 	}
-	lines := strings.Split(string(content), "\n")
+	lines := strings.Split(string(g.Content), "\n")
 
 	s1 := rand.NewSource(time.Now().UnixNano())
-    r1 := rand.New(s1)
-
+	r1 := rand.New(s1)
 
 	nb_mot := len(lines)
-	g.random_number = r1.Intn(nb_mot)
-	fmt.Println(lines[g.random_number])
-	tableau := []rune(lines[g.random_number])
-	fmt.Println(tableau)
+	g.Random_number = r1.Intn(nb_mot)
+	fmt.Println(lines[g.Random_number])
+	g.Tableau_rune = []rune(lines[g.Random_number])
+	fmt.Println(g.Tableau_rune)
 	fmt.Println()
 
-	for i := 0; i < len(lines[g.random_number]) - 1; i++ {
-		g.mot_secret = append(g.mot_secret, "_")
+	for i := 0; i < len(lines[g.Random_number])-1; i++ {
+		g.Mot_secret = append(g.Mot_secret, "_")
 	}
-	
-	fmt.Println(g.mot_secret)
-	fmt.Println()
 
-	switch g.stage {
+	fmt.Println(g.Mot_secret)
+	fmt.Println()
+}
+
+func (g *Game) verif() {
+	fmt.Println(g.Mot_secret)
+
+	fmt.Print("\n\n")
+	fmt.Print("Entrez une letttre : ")
+	var text string
+	fmt.Scanln(&text)
+	fmt.Println()
+	for j := 0; j < len(g.Tableau_rune) -1; j++ {
+		if string(text) == string(g.Tableau_rune[j]) {
+			fmt.Println("vrai")
+			g.Mot_secret[j] = text
+		}
+	}
+}
+
+func (g *Game) Display() {
+
+	switch g.Stage {
 	case 0: //vide
 		for i := 0; i < len(g.Tableau); i++ {
 			fmt.Println(g.Tableau[i])
 		}
-		fmt.Print("\n\n")
-		var text rune
-		fmt.Scanln(&text)
-		fmt.Println(text)
-		for _, letter := range tableau {
-			letter = 0
-			if text == letter {
-				fmt.Println("vrai")
-			}
-		}
+		g.verif()
+		g.Display()
 
 	case 1: //sol
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -64,7 +73,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "2" {
-			g.stage = 2
+			g.Stage = 2
 			g.Display()
 		}
 
@@ -81,7 +90,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "3" {
-			g.stage = 3
+			g.Stage = 3
 			g.Display()
 		}
 
@@ -98,7 +107,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "4" {
-			g.stage = 4
+			g.Stage = 4
 			g.Display()
 		}
 
@@ -115,7 +124,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "5" {
-			g.stage = 5
+			g.Stage = 5
 			g.Display()
 		}
 
@@ -131,7 +140,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "6" {
-			g.stage = 6
+			g.Stage = 6
 			g.Display()
 		}
 
@@ -147,7 +156,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "7" {
-			g.stage = 7
+			g.Stage = 7
 			g.Display()
 		}
 
@@ -164,7 +173,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "8" {
-			g.stage = 8
+			g.Stage = 8
 			g.Display()
 		}
 
@@ -180,7 +189,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "9" {
-			g.stage = 9
+			g.Stage = 9
 			g.Display()
 		}
 
@@ -196,7 +205,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "10" {
-			g.stage = 10
+			g.Stage = 10
 			g.Display()
 		}
 
@@ -212,7 +221,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "11" {
-			g.stage = 11
+			g.Stage = 11
 			g.Display()
 		}
 
@@ -228,7 +237,7 @@ func (g *Game) Display() {
 		fmt.Scanln(&text)
 
 		if text == "12" {
-			g.stage = 12
+			g.Stage = 12
 			g.Display()
 		}
 

@@ -10,6 +10,7 @@ func (g *Game) Main_Menu() {
 	switch text {
 	case "yes":
 		fmt.Println()
+		g.aléatoire()
 		g.Display()
 	default:
 		fmt.Println("Réessayez")
