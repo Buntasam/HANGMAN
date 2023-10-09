@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+
 func (g *Game) aléatoire() {
 	g.Content, g.Err = os.ReadFile("gameEngine/mot.txt")
 	if g.Err != nil {
@@ -52,7 +53,6 @@ func (g *Game) verif() {
 	}
 }
 
-
 func (g* Game) Win() {
 	g.win = true
 	for i := 0; i < len(g.Mot_secret); i++ {
@@ -61,8 +61,15 @@ func (g* Game) Win() {
 		} 
 	}
 	if g.win {
-		fmt.Println("You win !")
+		fmt.Print("\n\n\n\n\n\n\n\n")
+		fmt.Println(" __     ______  _    _  __          _______ _   _ ")
+		fmt.Println(" \\ \\   / / __ \\| |  | | \\ \\        / /_   _| \\ | |")
+		fmt.Println("  \\ \\_/ / |  | | |  | |  \\ \\  /\\  / /  | | |  \\| |")
+		fmt.Println("   \\   /| |  | | |  | |   \\ \\/  \\/ /   | | | . ` |")
+		fmt.Println("    | | | |__| | |__| |    \\  /\\  /   _| |_| |\\  |")
+		fmt.Println("    |_|  \\____/ \\____/      \\/  \\/   |_____|_| \\_|")
 		fmt.Println()
+
 		os.Exit(0)
 	}
 
