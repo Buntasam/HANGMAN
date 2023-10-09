@@ -68,7 +68,7 @@ func (g* Game) Win() {
 		fmt.Println("   \\   /| |  | | |  | |   \\ \\/  \\/ /   | | | . ` |")
 		fmt.Println("    | | | |__| | |__| |    \\  /\\  /   _| |_| |\\  |")
 		fmt.Println("    |_|  \\____/ \\____/      \\/  \\/   |_____|_| \\_|")
-		fmt.Println()
+		fmt.Println("\n\n\n")
 
 		os.Exit(0)
 	}
