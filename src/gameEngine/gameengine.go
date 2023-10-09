@@ -20,6 +20,7 @@ type Game struct {
 	Tableau_rune  []rune
 	perdu         bool
 	mot           string
+	win           bool
 }
 
 func (g *Game) Init_game(Ligne int, Colonne int) {

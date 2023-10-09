@@ -41,7 +41,7 @@ func (g *Game) verif() {
 	fmt.Scanln(&text)
 	fmt.Println()
 	g.perdu = true
-	for j := 0; j < len(g.Tableau_rune)-1; j++ {
+	for j := 0; j < len(g.Tableau_rune); j++ {
 		if string(text) == string(g.Tableau_rune[j]) {
 			g.Mot_secret[j] = text
 			g.perdu = false
@@ -52,6 +52,23 @@ func (g *Game) verif() {
 	}
 }
 
+
+func (g* Game) Win() {
+	g.win = true
+	for i := 0; i < len(g.Mot_secret); i++ {
+		if g.Mot_secret[i] == "_" {
+			g.win = false
+		} 
+	}
+	if g.win {
+		fmt.Println("You win !")
+		fmt.Println()
+		os.Exit(0)
+	}
+
+}
+
+
 func (g *Game) Display() {
 
 	switch g.Stage {
@@ -60,6 +77,7 @@ func (g *Game) Display() {
 			fmt.Println(g.Tableau[i])
 		}
 		g.verif()
+		g.Win()
 		g.Display()
 
 	case 1: //sol
@@ -73,6 +91,7 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
 
 	case 2: //poteau
@@ -84,6 +103,7 @@ func (g *Game) Display() {
 			fmt.Println(g.Tableau[i])
 		}
 		g.verif()
+		g.Win()
 		g.Display()
 
 	case 3: //barre du haut
@@ -96,6 +116,7 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
 
 	case 4: //soutien
@@ -108,6 +129,7 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
 
 	case 5: //corde
@@ -119,6 +141,7 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
 
 	case 6: //tete
@@ -130,6 +153,7 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
 
 	case 7: // corps
@@ -142,6 +166,7 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
 
 
@@ -154,7 +179,9 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
+		
 
 	case 9: // bras gauche
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -165,6 +192,7 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
 
 
@@ -177,7 +205,9 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
+		
 
 	case 11: // jambe droite
 		fmt.Print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
@@ -188,7 +218,9 @@ func (g *Game) Display() {
 		}
 
 		g.verif()
+		g.Win()
 		g.Display()
+		
 
 	case 12: // game over
 		fmt.Print("\n\n")
