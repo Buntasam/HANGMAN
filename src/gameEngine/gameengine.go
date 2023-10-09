@@ -38,6 +38,13 @@ func (g *Game) Init_game(Ligne int, Colonne int) {
 }
 
 func (g *Game) Running_game() {
+	fmt.Println("  _    _          _   _  _____ __  __          _   _ ")
+	fmt.Println(" | |  | |   /\\   | \\ | |/ ____|  \\/  |   /\\   | \\ | |")
+	fmt.Println(" | |__| |  /  \\  |  \\| | |  __| \\  / |  /  \\  |  \\| |")
+	fmt.Println(" |  __  | / /\\ \\ | . ` | | |_ | |\\/| | / /\\ \\ | . ` |")
+	fmt.Println(" | |  | |/ ____ \\| |\\  | |__| | |  | |/ ____ \\| |\\  |")
+	fmt.Println(" |_|  |_/_/    \\_\\_| \\_|\\_____|_|  |_/_/    \\_\\_| \\_|")
+	fmt.Println()
 	fmt.Println("Bienvenue sur notre pendu !")
 	fmt.Println("Voulez-vous jouer ? yes / no")
 	fmt.Println()
