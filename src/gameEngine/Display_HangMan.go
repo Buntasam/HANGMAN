@@ -37,7 +37,7 @@ func (g *Game) getGuess(lettre string) string {
 	return g.guess
 }
 
-func (g *Game) verif() {
+func (g *Game) Phrases() {
 	fmt.Println()
 	fmt.Println(g.Mot_secret)
 
@@ -46,10 +46,26 @@ func (g *Game) verif() {
 	fmt.Println("Tentatives restantes:", g.attemptsLeft)
 	fmt.Println("Already used letters:", g.guesses)
 	fmt.Print("Entrez une letttre : ")
+}
+
+func (g *Game) verif() {
+
+	g.Phrases()
 
 	var text string
 	fmt.Scanln(&text)
 	fmt.Println()
+
+	for i := 0; i < len(g.guesses); i++ {
+		if len(text) != 1 || text == g.guesses[i] {
+				fmt.Println("\n\n\n\n")
+				fmt.Println("Not good")
+				g.verif()
+				g.Display()
+		}	
+	}
+	
+	
 	g.getGuess(text)
 	g.perdu = true
 	for j := 0; j < len(g.Tableau_rune); j++ {
