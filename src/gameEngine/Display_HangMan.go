@@ -271,5 +271,6 @@ func (g *Game) Display() {
 		fmt.Printf("Le mot était : %s", g.mot)
 		fmt.Println()
 		fmt.Println()
+		os.Exit(0)
 	}
 }

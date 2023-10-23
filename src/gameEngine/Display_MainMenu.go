@@ -13,7 +13,7 @@ func (g *Game) Main_Menu() {
 		g.aléatoire()
 		g.Display()
 	default:
-		fmt.Println("Réessayez")
+		fmt.Println("TRY AGAIN ")
 		fmt.Println()
 		g.Main_Menu()
 	}
