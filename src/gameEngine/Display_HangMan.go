@@ -58,7 +58,7 @@ func (g *Game) verif() {
 
 	for i := 0; i < len(g.guesses); i++ {
 		if len(text) != 1 || text == g.guesses[i] {
-				fmt.Println("\n\n\n\n")
+				fmt.Println("\n\n\n\n\n\n")
 				fmt.Println("Not good")
 				g.verif()
 				g.Display()
@@ -96,7 +96,7 @@ func (g* Game) Win() {
 		fmt.Println("   \\   /| |  | | |  | |   \\ \\/  \\/ /   | | | . ` |")
 		fmt.Println("    | | | |__| | |__| |    \\  /\\  /   _| |_| |\\  |")
 		fmt.Println("    |_|  \\____/ \\____/      \\/  \\/   |_____|_| \\_|")
-		fmt.Println("\n\n\n")
+		fmt.Println("\n\n\n\n")
 
 		os.Exit(0)
 	}
