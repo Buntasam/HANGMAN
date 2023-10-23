@@ -37,7 +37,11 @@ func (g *Game) verif() {
 	fmt.Println(g.Mot_secret)
 
 	fmt.Print("\n\n")
+	fmt.Println()
+	fmt.Println("Tentatives restantes:", g.attemptsLeft)
+	fmt.Println()
 	fmt.Print("Entrez une letttre : ")
+
 	var text string
 	fmt.Scanln(&text)
 	fmt.Println()
@@ -50,6 +54,7 @@ func (g *Game) verif() {
 	}
 	if g.perdu {
 		g.Stage++
+		g.attemptsLeft--
 	}
 }
 

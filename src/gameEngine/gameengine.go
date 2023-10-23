@@ -21,6 +21,9 @@ type Game struct {
 	perdu         bool
 	mot           string
 	win           bool
+	attemptsLeft  int
+	guesses       []string
+	guess         string
 }
 
 func (g *Game) Init_game(Ligne int, Colonne int) {
@@ -35,6 +38,7 @@ func (g *Game) Init_game(Ligne int, Colonne int) {
 		}
 	}
 	g.Random_number = 0
+	g.attemptsLeft = 12
 }
 
 func (g *Game) Running_game() {
